@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: springboot-demo-redis
+  sleuth:
+    sampler:
+      probability: 1.0   #2.0后percentage改为probability
+server:
+  port: 8081
+  tomcat:
+    #最大连接数
+    max-connections: 500
+    #最大线程数
+    max-threads: 400
+    #编码方式
+    uri-encoding: UTF-8
+    #post提交数据最大大小，设置为0不限制
+    max-http-post-size: 0

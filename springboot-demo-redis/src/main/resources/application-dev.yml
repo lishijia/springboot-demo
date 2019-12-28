@@ -1,0 +1,23 @@
+spring:
+  redis:
+    host: 10.0.101.70
+    port: 6379
+    password:
+    database: 15
+    lettuce:
+      pool:
+        max-active: 500
+        max-idle: 100
+        min-idle: 20
+        max-wait: 10000
+    timeout: 5000
+
+## Swagger
+swagger:
+  host:
+  title: title
+  description: description
+  redirect-uri: / # 禁用swagger时的重定向地址
+  version: 1.0
+
+
