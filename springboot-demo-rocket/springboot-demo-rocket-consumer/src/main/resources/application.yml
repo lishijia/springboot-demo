@@ -1,0 +1,34 @@
+spring:
+  profiles:
+    include: swagger
+  application:
+    name: spring-boot-rocket-consumer
+  sleuth:
+    sampler:
+      probability: 1.0   #2.0后percentage改为probability
+server:
+  port: 8082
+  tomcat:
+    #最大连接数
+    max-connections: 500
+    #最大线程数
+    max-threads: 400
+    #编码方式
+    uri-encoding: UTF-8
+    #post提交数据最大大小，设置为0不限制
+    max-http-post-size: 0
+
+rocketmq:
+  # 消费者配置
+  consumer:
+    isOnOff: on
+    # 官方建议：确保同一组中的每个消费者订阅相同的主题。
+    groupName: john_consumer_group_name
+    # 服务地址
+    namesrvAddr: 192.168.152.201:9876,192.168.152.201:9876,192.168.152.201:9876
+    # 接收该 Topic 下所有 Tag
+    topics: JohnTopic|*;
+    consumeThreadMin: 20
+    consumeThreadMax: 64
+    # 设置一次消费消息的条数，默认为1条
+    consumeMessageBatchMaxSize: 1

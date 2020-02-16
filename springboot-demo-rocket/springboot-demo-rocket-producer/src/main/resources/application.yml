@@ -1,0 +1,37 @@
+spring:
+  profiles:
+    include: swagger
+  application:
+    name: spring-boot-rocket-producer
+server:
+  port: 8081
+  tomcat:
+    #最大连接数
+    max-connections: 500
+    #最大线程数
+    max-threads: 400
+    #编码方式
+    uri-encoding: UTF-8
+    #post提交数据最大大小，设置为0不限制
+    max-http-post-size: 0
+## Swagger
+swagger:
+  host:
+  title: spring-boot-test interface
+  description: pring-boot-test interface
+  redirect-uri: / # 禁用swagger时的重定向地址
+  version: 1.0
+rocketmq:
+  # 生产者配置
+  producer:
+    isOnOff: on
+    # 发送同一类消息的设置为同一个group，保证唯一
+    groupName: john_producer_group_name
+    # 服务地址
+    namesrvAddr: 192.168.152.201:9876,192.168.152.201:9876,192.168.152.201:9876
+    # 消息最大长度 默认1024*4(4M)
+    maxMessageSize: 4096
+    # 发送消息超时时间,默认3000
+    sendMsgTimeout: 3000
+    # 发送消息失败重试次数，默认2
+    retryTimesWhenSendFailed: 2

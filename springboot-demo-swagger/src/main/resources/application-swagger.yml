@@ -1,0 +1,7 @@
+## Swagger
+swagger:
+  host:
+  title: spring-boot-test interface
+  description: pring-boot-test interface
+  redirect-uri: / # 禁用swagger时的重定向地址
+  version: 1.0
