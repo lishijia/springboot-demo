@@ -13,15 +13,17 @@ public class MQSenderService {
     @Autowired
     private DefaultMQProducer defaultMQProducer;
 
-    public void sendMessage(){
-        log.info("准备发送消息to rocketMQ");
-        Message message = new Message("JohnTopic", "JohnTag", "data".getBytes());
+    public void sendMessage(String msg){
+        String logPre = "[RocketMQ发送消息]";
+        log.info("{} 准备发送消息to rocketMQ", logPre);
+        Message message = new Message("JohnTopic", "JohnTag", msg.getBytes());
         try {
+            log.info("{} 消息内容 msg = {}", logPre, message);
             defaultMQProducer.send(message);
         }catch (Exception e){
-            log.error("消息发送异常 error={}", e);
+            log.error("{} 消息发送异常 error={}", logPre, e);
         }
-        log.info("消息发送完成 rocketMQ");
+        log.info("{} 消息发送完成 rocketMQ",logPre);
     }
 
 

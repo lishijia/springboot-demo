@@ -15,6 +15,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        // 解决 doc.html 404 报错
+        registry.addResourceHandler("/doc.html").addResourceLocations("classpath:/META-INF/resources/");
         //过滤swagger
         registry.addResourceHandler("swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/");
@@ -29,9 +31,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .addResourceLocations("classpath:/META-INF/resources/swagger*");
 
         registry.addResourceHandler("/v2/api-docs/**")
-                .addResourceLocations("classpath:/META-INF/resources/v2/api-docs/");
-
-    }
+                .addResourceLocations("classpath:/META-INF/resources/v2/api-docs/"); }
 
 
 }

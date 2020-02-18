@@ -25,7 +25,7 @@ rocketmq:
     # 官方建议：确保同一组中的每个消费者订阅相同的主题。
     groupName: john_consumer_group_name
     # 服务地址
-    namesrvAddr: 192.168.152.201:9876,192.168.152.201:9876,192.168.152.201:9876
+    namesrvAddr: 10.0.101.157:9876;10.0.101.158:9876
     # 接收该 Topic 下所有 Tag
     topics: JohnTopic|*;
     consumeThreadMin: 20

@@ -18,8 +18,8 @@ public class MQTestController {
 
     @PostMapping("/mq")
     @ApiOperation("test")
-    public String test() {
-        mqSenderService.sendMessage();
+    public String test(String msg) {
+        mqSenderService.sendMessage(msg);
         return "success";
     }
 

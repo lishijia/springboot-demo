@@ -24,8 +24,8 @@ public class RocketMQLinstener implements MessageListenerConcurrently{
             return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
         }
         MessageExt messageExt = list.get(0);
-        log.info("{} 接收消息 message = ", logPre, messageExt);
-        log.info("接受到的消息为：" + new String(messageExt.getBody()));
+        log.info("{} 接收消息 message = {}", logPre, messageExt);
+        log.info("{} 接受到的消息为 body = {}", logPre, new String(messageExt.getBody()));
         // 消息消费成功
         return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
     }

@@ -30,4 +30,16 @@ public class SpringBootDemoRedisTest {
         redisService.testGetFromCache();
     }
 
+    @Test
+    public void testAddSetValue(){
+        redisService.pushDataToSet();
+    }
+
+    @Test
+    public void testSetHasMember(){
+        redisService.hasMember("1");
+    }
+
+
+
 }
